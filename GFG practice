@@ -1,0 +1,25 @@
+class Solution
+{
+    //Function to count number of ways to reach the nth stair.
+    int countWays(int n)
+    {
+        if(n==0) {
+			return 1;
+		}
+		if(n==1) {
+			return 1;
+		}
+		if(n==2) {
+			return 2;
+		}
+		int storage[] = new int[n+1];
+		storage[0] = 1;
+		storage[1] = 1;
+		storage[2] = 2;
+		for(int i=3;i<=n;i++) {
+			storage[i] = (storage[i-1] + storage[i-2])%1000000007;
+		}
+		return storage[n];
+    }
+    
+}
